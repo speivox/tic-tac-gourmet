@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Ambiente de desenvolvimento: remover ao publicar no domínio do cliente -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Tic Tac Gourmet | Buffet em carrinhos gourmet em Minas Gerais</title>
+    <meta
+      name="description"
+      content="Buffet em carrinhos gourmet para casamentos, aniversários e eventos corporativos em toda Minas Gerais. Desde 2012. Peça seu orçamento pelo WhatsApp."
+    />
+    <meta name="theme-color" content="#351c0e" />
+    <link rel="canonical" href="https://www.tictaceventos.com.br/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://www.tictaceventos.com.br/" />
+    <meta property="og:title" content="Tic Tac Gourmet — sua melhor festa" />
+    <meta
+      property="og:description"
+      content="Pioneiros no conceito de buffet em carrinhos gourmet. Atendemos toda Minas Gerais desde 2012."
+    />
+    <meta property="og:image" content="https://www.tictaceventos.com.br/assets/img/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="assets/img/carrinho-preto.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Outfit:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FoodEstablishment",
+        "name": "Tic Tac Gourmet",
+        "description": "Buffet em carrinhos gourmet para eventos sociais e corporativos em Minas Gerais.",
+        "url": "https://www.tictaceventos.com.br/",
+        "telephone": "+55 31 99593-6536",
+        "email": "contato@tictaceventos.com.br",
+        "servesCuisine": "Buffet para eventos",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Arantina, 128 - Minaslândia",
+          "addressLocality": "Belo Horizonte",
+          "addressRegion": "MG",
+          "addressCountry": "BR"
+        },
+        "areaServed": { "@type": "State", "name": "Minas Gerais" },
+        "sameAs": ["https://www.instagram.com/tictacgourmet/"],
+        "foundingDate": "2012"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header" id="topo">
+      <div class="container header-inner">
+        <a href="#inicio" class="brand" aria-label="Página inicial da Tic Tac Gourmet">
+          <img
+            src="assets/img/logo-preto.png"
+            alt="Tic Tac Gourmet"
+            class="brand-logo"
+            width="51"
+            height="50"
+          />
+        </a>
+
+        <nav class="main-nav" id="main-nav" aria-label="Principal">
+          <a href="#cardapio">Cardápio</a>
+          <a href="#carrinhos">Carrinhos</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#faq">Dúvidas</a>
+          <a class="btn btn--sm nav-cta" data-wa="orcamento" href="#">Orçamento</a>
+        </nav>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero stock" id="inicio">
+        <img
+          class="hero-media"
+          src="assets/img/hero.webp"
+          alt=""
+          fetchpriority="high"
+          aria-hidden="true"
+        />
+        <div class="container hero-content">
+          <img
+            class="hero-logo"
+            src="assets/img/logo-branco.png"
+            alt="Tic Tac Gourmet"
+            width="175"
+            height="170"
+          />
+          <h1>Sua melhor festa não é slogan.<br />É compromisso.</h1>
+          <p class="hero-note">Desde 2012</p>
+          <div class="hero-actions">
+            <a class="btn btn--light" href="#orcamento">
+              Quero a minha festa
+              <svg class="i i--down" aria-hidden="true"><use href="#i-arrow-down" /></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- CARDÁPIO -->
+      <section class="section section--cream" id="cardapio">
+        <div class="container">
+          <header class="section-head">
+            <h2>Do salgado ao doce, tudo feito na hora</h2>
+            <p class="section-lead">
+              Você escolhe quantas opções quiser e a gente monta a estrutura em volta delas.
+            </p>
+          </header>
+
+          <ul class="dishes" id="dishes">
+            <li class="dish">
+              <div class="dish-media stock">
+                <img src="assets/img/m-hamburguer.webp" alt="Mini hambúrguer artesanal com batata frita" loading="lazy" />
+              </div>
+              <h3>Hambúrguer artesanal</h3>
+            </li>
+            <li class="dish">
+              <div class="dish-media stock">
+                <img src="assets/img/m-pizza.webp" alt="Pizza brotinho montada na hora" loading="lazy" />
+              </div>
+              <h3>Pizza brotinho</h3>
+            </li>
+            <li class="dish">
+              <div class="dish-media stock">
+                <img src="assets/img/m-churrasco.webp" alt="Espetinhos feitos na chapa" loading="lazy" />
+              </div>
+              <h3>Churrasco</h3>
+            </li>
+            <li class="dish">
+              <div class="dish-media stock">
+                <img src="assets/img/m-risoto.webp" alt="Risoto montado na hora" loading="lazy" />
+              </div>
+              <h3>Risoto</h3>
+            </li>
+            <li class="dish">
+              <div class="dish-media stock">
+                <img src="assets/img/m-crepe.webp" alt="Crepe montado na hora" loading="lazy" />
+              </div>
+              <h3>Crepe</h3>
+            </li>
+            <li class="dish">
+              <div class="dish-media stock">
+                <img src="assets/img/m-churros.webp" alt="Churros gourmet com recheios e toppings" loading="lazy" />
+              </div>
+              <h3>Churros</h3>
+            </li>
+            <li class="dish">
+              <div class="dish-media stock">
+                <img src="assets/img/m-sorvete.webp" alt="Sorvete com coberturas" loading="lazy" />
+              </div>
+              <h3>Sorvete</h3>
+            </li>
+            <li class="dish">
+              <div class="dish-media stock">
+                <img src="assets/img/m-acai.webp" alt="Açaí com frutas e toppings" loading="lazy" />
+              </div>
+              <h3>Açaí</h3>
+            </li>
+            <li class="dish">
+              <div class="dish-media stock">
+                <img src="assets/img/m-hotdog.webp" alt="Hot dog gourmet" loading="lazy" />
+              </div>
+              <h3>Hot dog</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-paodequeijo.webp" alt="Pão de queijo assado e recheado na hora" loading="lazy" />
+              </div>
+              <h3>Pão de queijo recheado</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-massa.webp" alt="Massa com molhos e ingredientes à escolha" loading="lazy" />
+              </div>
+              <h3>Massa</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-pastel.webp" alt="Pastelzinho frito na hora" loading="lazy" />
+              </div>
+              <h3>Pastelzinho</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-tropeiro.webp" alt="Feijão tropeiro com torresmo e couve" loading="lazy" />
+              </div>
+              <h3>Tropeiro</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-charcutaria.webp" alt="Tábua de frios, queijos e geleias" loading="lazy" />
+              </div>
+              <h3>Frios e charcutaria</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-milho.webp" alt="Milho na espiga ou no copinho" loading="lazy" />
+              </div>
+              <h3>Milho</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-caldos.webp" alt="Caldos quentes servidos na cumbuca" loading="lazy" />
+              </div>
+              <h3>Caldos</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-salada.webp" alt="Saladinha com dez ingredientes à escolha" loading="lazy" />
+              </div>
+              <h3>Saladinha</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-brigadeiro.webp" alt="Brigadeiro cremoso com toppings" loading="lazy" />
+              </div>
+              <h3>Brigadeiro</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-picole.webp" alt="Picolé artesanal e gourmet" loading="lazy" />
+              </div>
+              <h3>Picolé</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-felicidade.webp" alt="Copo montado pelo convidado" loading="lazy" />
+              </div>
+              <h3>Copo da felicidade</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-fondue.webp" alt="Fondue de chocolate com toppings" loading="lazy" />
+              </div>
+              <h3>Fondue de chocolate</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-milkshake.webp" alt="Milk shake batido na hora" loading="lazy" />
+              </div>
+              <h3>Milk shake</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-algodao.webp" alt="Algodão doce no bastão de LED" loading="lazy" />
+              </div>
+              <h3>Algodão doce</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-guloseimas.webp" alt="Carrinho de doces e balas" loading="lazy" />
+              </div>
+              <h3>Doces e guloseimas</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-suco.webp" alt="Sucos naturais e de polpa" loading="lazy" />
+              </div>
+              <h3>Sucos</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-refrigerante.webp" alt="Refrigerantes gelados" loading="lazy" />
+              </div>
+              <h3>Refrigerantes</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-cerveja.webp" alt="Cerveja long neck gelada" loading="lazy" />
+              </div>
+              <h3>Cerveja</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-drinks.webp" alt="Caipirinha e outros drinks" loading="lazy" />
+              </div>
+              <h3>Drinks</h3>
+            </li>
+            <li class="dish is-hidden">
+              <div class="dish-media stock">
+                <img src="assets/img/m-agua.webp" alt="Água com e sem gás" loading="lazy" />
+              </div>
+              <h3>Água</h3>
+            </li>
+          </ul>
+
+          <div class="quotes-more">
+            <button class="btn btn--outline" type="button" data-more="dishes" data-visible="9"
+              data-label-more="Ver as 29 opções"
+              data-label-less="Ver menos">Ver as 29 opções</button>
+          </div>
+        </div>
+      </section>
+      <!-- CARRINHOS -->
+      <section class="section" id="carrinhos">
+        <div class="container">
+          <header class="section-head">
+            <h2>Dois carrinhos, a mesma entrega</h2>
+            <p class="section-lead">
+              O carrinho leva a cozinha até o seu evento. O que muda entre eles é o acabamento e
+              o alcance do cardápio.
+            </p>
+          </header>
+
+          <div class="carts">
+            <article class="cart">
+              <h3>Vintage</h3>
+              <p>
+                O carrinho completo, com acabamento clássico. Atende todo o cardápio, inclusive
+                o que exige preparo na hora e louça de porcelana.
+              </p>
+              <dl class="specs">
+                <div><dt>Cardápio</dt><dd>Completo</dd></div>
+                <div><dt>Equipe</dt><dd>1 a 2 monitores</dd></div>
+                <div><dt>Medidas</dt><dd>1,20 × 2,30 × 0,60 m</dd></div>
+              </dl>
+            </article>
+
+            <article class="cart">
+              <h3>Tradicional</h3>
+              <p>
+                Versão mais enxuta, ideal para quem combina vários carrinhos no mesmo evento.
+                Atende as opções de serviço rápido e alto volume.
+              </p>
+              <dl class="specs">
+                <div><dt>Cardápio</dt><dd>Opções selecionadas</dd></div>
+                <div><dt>Equipe</dt><dd>1 monitor</dd></div>
+                <div><dt>Medidas</dt><dd><span class="tbc">a confirmar</span></dd></div>
+              </dl>
+            </article>
+          </div>
+
+          <p class="note">
+            <span class="tbc"
+              >Confirmar com o cliente o que o espaço precisa ter: tomada e voltagem, ponto de
+              água e área livre por carrinho.</span
+            >
+          </p>
+        </div>
+      </section>
+      <!-- COMO FUNCIONA -->
+      <section class="section section--cream" id="como-funciona">
+        <div class="container">
+          <header class="section-head">
+            <h2>Do primeiro contato ao grande dia</h2>
+            <p class="section-lead">
+              Seis passos, nenhuma surpresa. Tudo combinado por escrito antes do evento.
+            </p>
+          </header>
+
+          <ol class="trail">
+            <li class="trail-step">
+              <span class="trail-dot" aria-hidden="true"><b>1</b></span>
+              <div class="trail-body">
+                <h3>Você chama</h3>
+                <p>Conta a data, o local e quantos convidados espera.</p>
+              </div>
+            </li>
+            <li class="trail-step">
+              <span class="trail-dot" aria-hidden="true"><b>2</b></span>
+              <div class="trail-body">
+                <h3>Proposta</h3>
+                <p>Montamos uma proposta só para o seu evento.</p>
+              </div>
+            </li>
+            <li class="trail-step">
+              <span class="trail-dot" aria-hidden="true"><b>3</b></span>
+              <div class="trail-body">
+                <h3>Menu</h3>
+                <p>Escolhemos juntos as opções do cardápio.</p>
+              </div>
+            </li>
+            <li class="trail-step">
+              <span class="trail-dot" aria-hidden="true"><b>4</b></span>
+              <div class="trail-body">
+                <h3>Contrato</h3>
+                <p>Pagamento e montagem combinados por escrito.</p>
+              </div>
+            </li>
+            <li class="trail-step">
+              <span class="trail-dot" aria-hidden="true"><b>5</b></span>
+              <div class="trail-body">
+                <h3>Montagem</h3>
+                <p>Chegamos uma hora antes e deixamos tudo pronto.</p>
+              </div>
+            </li>
+            <li class="trail-step">
+              <span class="trail-dot" aria-hidden="true"><b>6</b></span>
+              <div class="trail-body">
+                <h3>A festa</h3>
+                <p>A gente serve, recolhe e some. Você só curte.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <!-- DEPOIMENTOS -->
+      <section class="section section--dark" id="depoimentos">
+        <div class="container">
+          <header class="section-head section-head--center">
+            <h2>O que dizem depois da festa</h2>
+            <p class="section-lead">
+              Mensagens recebidas pelo WhatsApp, Instagram e Google, transcritas na íntegra.
+            </p>
+          </header>
+
+          <div class="rating-wrap">
+            <div class="rating">
+              <span class="rating-top">
+                <span class="rating-score">4,9</span>
+                <span class="rating-stars" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><use href="#i-star" /></svg>
+                  <svg viewBox="0 0 24 24"><use href="#i-star" /></svg>
+                  <svg viewBox="0 0 24 24"><use href="#i-star" /></svg>
+                  <svg viewBox="0 0 24 24"><use href="#i-star" /></svg>
+                  <svg viewBox="0 0 24 24"><use href="#i-star" /></svg>
+                </span>
+              </span>
+              <span class="rating-meta">
+                <b>Avaliações no Google</b>
+                <a href="https://www.google.com/maps/place/Tic+Tac+Gourmet/@-19.8526516,-43.9309423,17z/data=!4m8!3m7!1s0xa69a9676572123:0x22c3c337ab865606!8m2!3d-19.8526567!4d-43.9283674!9m1!1b1!16s%2Fg%2F11bbrswftr" target="_blank" rel="noopener">Ver no Google Maps</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="quotes" id="quotes">
+            <figure class="quote">
+              <blockquote>&ldquo;Não tem como descrever o que foi o evento. Vocês são simplesmente impecáveis. Desde o primeiro atendimento, sua atenção e cuidado em atender todos os pedidos. No dia superaram as expectativas, que já eram muito altas. Muitos convidados já pedindo o contato de vocês!&rdquo;</blockquote>
+              <figcaption>Priscila <span>Aniversário infantil</span></figcaption>
+            </figure>
+            <figure class="quote">
+              <blockquote>&ldquo;Fizemos tema junino e foi minha primeira experiência com vocês. E que grata surpresa, tudo impecável! Organização, limpeza, sabor, serviço, atendimento. Zero defeitos! Várias pessoas já me pediram telefone e eu virei cliente fiel.&rdquo;</blockquote>
+              <figcaption>Stephanie D. <span>Aniversário em Nova Lima</span></figcaption>
+            </figure>
+            <figure class="quote">
+              <blockquote>&ldquo;Sinceramente não tenho nada a reclamar, eu amei o serviço de vocês desde o começo. Tudo foi perfeito e impecável, do jeito que eu queria. Vocês foram a solução perfeita para o buffet, totalmente organizados e independentes. A noiva amou. Além de buffet, vocês viraram atração!&rdquo;</blockquote>
+              <figcaption>Emanuelly A. <span>Casamento</span></figcaption>
+            </figure>
+            <figure class="quote">
+              <blockquote>&ldquo;A Tic Tac foi nossa parceira em nossa festa corporativa, sendo um sucesso total. A prestação de serviço foi impecável e o sorvete, extremamente saboroso. Em nome de toda a equipe, agradecemos pela excelência no atendimento e pela parceria.&rdquo;</blockquote>
+              <figcaption>Luiza T. <span>Evento corporativo</span></figcaption>
+            </figure>
+            <figure class="quote">
+              <blockquote>&ldquo;Foi simplesmente lindo! A equipe de entrega e montagem foi muito educada e atenciosa. As meninas que ficaram nos carrinhos, nem consigo descrever a educação, a empatia e o carinho com todos. Foi encantador! A comida estava deliciosa, sucesso absoluto entre adultos e crianças.&rdquo;</blockquote>
+              <figcaption>Vanessa M. <span>Festa de família</span></figcaption>
+            </figure>
+            <figure class="quote">
+              <blockquote>&ldquo;Gostaríamos de agradecer imensamente a vocês, que fizeram parte dessa festa tão especial, os 65 anos da nossa empresa. O empenho, profissionalismo, dedicação e carinho de cada um foram essenciais para que tudo acontecesse de forma tão maravilhosa. Foi lindo ver cada detalhe saindo com tanto cuidado e excelência.&rdquo;</blockquote>
+              <figcaption>Cristina <span>Evento corporativo</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Mais uma vez, só tenho a agradecer. Vocês brilharam! Que equipe sensacional! Levo todos vocês no coração. Tudo impecavelmente delicioso, organizado. Amamos tudo!&rdquo;</blockquote>
+              <figcaption>Karita F. <span>Aniversário</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi um sucesso! Além dos hambúrgueres serem deliciosos e a mini pizza também, o atendimento das meninas e a educação fizeram uma diferença e tanto na festa. Tivemos um imprevisto no salão e o pessoal do plantão me atendeu super bem. Já indiquei vocês para minhas amigas.&rdquo;</blockquote>
+              <figcaption>Úrsula B. <span>Aniversário infantil</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;O macarrão estava delicioso, quentinho e muito saboroso, e fez o maior sucesso entre as crianças e os adultos. A possibilidade de personalizar todos os potes com o tema foi simplesmente incrível. Foi lindo ver todo mundo aproveitando esse momento.&rdquo;</blockquote>
+              <figcaption>Ana Paula R. <span>Aniversário infantil</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi maravilhoso! Todos amaram, as crianças gostaram demais. As atendentes super atenciosas, educadíssimas. Os meninos que entregaram o carrinho também, educados e atenciosos demais!&rdquo;</blockquote>
+              <figcaption>Renata G. <span>Aniversário infantil</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Passando para agradecer pelo serviço excelente prestado. Vários convidados elogiaram o atendimento, a proatividade, carisma, responsabilidade e o delicioso cardápio servido. Alto nível de profissionalismo.&rdquo;</blockquote>
+              <figcaption>Sheila O. <span>Evento corporativo</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Quero agradecer pelo excelente atendimento na festa. Pela educação e profissionalismo da equipe. E, claro, pela delícia das comidas: os sanduíches, os copinhos de sobremesa, os sucos naturais, tudo. Ah, e o sanduíche Berlim é sensacional!&rdquo;</blockquote>
+              <figcaption>Eunice M. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Passando para agradecer demais, mais uma vez, pelo ótimo atendimento das meninas, super carismáticas e educadas. Trabalharam super bem, e a qualidade do macarrão, sem palavras pra descrever. Sensacional! Todo mundo me pediu o contato de vocês.&rdquo;</blockquote>
+              <figcaption>Iara J. <span>Evento com carrinho de macarrão</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Minha experiência foi sensacional! Vários convidados comentaram sobre os carrinhos, elogiaram e perguntaram de onde era. A comida estava deliciosa e os atendentes todos muito gentis. Foi nota mil!&rdquo;</blockquote>
+              <figcaption>Deborah L. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Pessoal chegou cedo, montou os carrinhos, e as meninas que atenderam foram super atenciosas. Todo mundo elogiou a comida, os espetinhos e as massas, tudo ótimo! Super recomendo, e umas três pessoas já me perguntaram quem era o fornecedor.&rdquo;</blockquote>
+              <figcaption>Larissa M. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi um sucesso! As comidas maravilhosas. O pessoal que veio nos atender são um encanto. Nota 1000 para vocês! Um monte de gente pegou o contato aqui. Certeza que faremos muitos eventos juntos ainda.&rdquo;</blockquote>
+              <figcaption>Marcella C. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Passando para agradecer pelo serviço perfeito que prestam pra gente. Todo mundo amou. Além da comida maravilhosa, as meninas são umas fofas. Com certeza chamaremos vocês nos próximos.&rdquo;</blockquote>
+              <figcaption>Luciana S. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi tudo simplesmente perfeito, como sempre. Todas as convidadas elogiaram bastante o carrinho e eu fiquei bastante satisfeita. Hoje mesmo, quando fui fazer pilates, o comentário já era a qualidade do pão de queijo servido no meu chá.&rdquo;</blockquote>
+              <figcaption>Laura A. <span>Chá</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Amei a qualidade dos churrasquinhos, o profissionalismo do responsável, o sabor, o tempero. O compromisso de vocês. Tudo dez mil! Parabéns, e até uma próxima.&rdquo;</blockquote>
+              <figcaption>Luana P. <span>Churrasco</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Os carrinhos fizeram o maior sucesso. Por ser uma festa infantil, o de churros fez ainda mais! Tudo muito saboroso e elogiado pelos convidados. Já indiquei vocês pra várias pessoas que estavam lá.&rdquo;</blockquote>
+              <figcaption>Ana Luísa <span>Festa infantil</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Amo o atendimento de vocês, e é sempre certeza de sucesso com os convidados. Enviaram uma equipe super alto astral, que me deu um atendimento muito VIP, garantindo que eu não ficasse sem comer enquanto recebia meus convidados. As crianças, grandes e pequenas, amaram tudo!&rdquo;</blockquote>
+              <figcaption>Fabíola B. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Os carrinhos foram sucesso. Todo mundo gostou muito, foram muitos os elogios. Estava tudo muito gostoso, as crianças adoraram, e a comida serviu muito bem a todos. Ficamos agradecidos pelo excelente trabalho de todos!&rdquo;</blockquote>
+              <figcaption>Tamires <span>Festa infantil</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Correu tudo bem e todos elogiaram, desde a apresentação ao tratamento dos profissionais que estiveram com a gente, todos muito educados e prestativos. As opções que escolhemos estavam uma delícia, o preparo exímio. Super recomendo.&rdquo;</blockquote>
+              <figcaption>Anne <span>Evento</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Amei que os pontos que eu havia comentado no ano passado foram todos resolvidos este ano. Do aviso antes de encerrar a oferecerem hora extra se tiver comida suficiente. Uma das moças foi atrás de mim para ver se eu estava precisando de algo. A equipe toda foi muito querida!&rdquo;</blockquote>
+              <figcaption>Carolina G. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;A experiência foi ótima. O carrinho é lindo, a funcionária chegou com antecedência e é muito educada, a batata estava saborosa, todos gostaram. Indicarei sempre e vou experimentar outros carrinhos no futuro.&rdquo;</blockquote>
+              <figcaption>Marina D. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Nota 10! Vocês sempre arrasam. Só comentários positivos e parabéns por entregarem sempre um sanduíche e uma batata tão maravilhosos. Os meninos amam demais.&rdquo;</blockquote>
+              <figcaption>Débora O. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Gostaria de agradecer pelo serviço prestado. Estava tudo incrível. As meninas, super simpáticas! Os hambúrgueres estavam perfeitos, fizeram sucesso.&rdquo;</blockquote>
+              <figcaption>Letícia M. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Só temos elogios, foi muito bom. Estava tudo muito gostoso, bem servido e com apresentação ótima. A equipe atenciosa também, adoramos!&rdquo;</blockquote>
+              <figcaption>Daniella S. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;O evento foi ótimo. Todos elogiaram as comidas oferecidas. As atendentes, muito solícitas e educadas. Foi excelente.&rdquo;</blockquote>
+              <figcaption>Kelly C. <span>Evento</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Passando para agradecer. Foi tudo magnífico! Todo mundo amou. Fez muito sucesso!&rdquo;</blockquote>
+              <figcaption>Rayane R. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Maravilhosa! Todos elogiaram muito. Várias pessoas já pediram o contato.&rdquo;</blockquote>
+              <figcaption>Elisa P. <span>Aniversário infantil</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi tudo maravilhoso, todos os convidados adoraram os pastéis. O atendimento da menina que estava lá foi excelente.&rdquo;</blockquote>
+              <figcaption>Petterson <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;O evento foi muito tranquilo, deu tudo certo. Foi a primeira vez que fiz um evento com vocês e gostei bastante do serviço. Gostei dos colaboradores, que foram simpáticos e solícitos.&rdquo;</blockquote>
+              <figcaption>Letícia P. <span>Primeiro evento com a gente</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi tudo perfeito, todo mundo que estava na festa amou, só tive elogios. Muito obrigada por fazerem parte desse momento tão especial na vida da minha filha.&rdquo;</blockquote>
+              <figcaption>Laura A. <span>Festa da filha</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Passando para agradecer vocês. Todos gostaram, elogiaram muito, tudo muito gostoso. Vocês foram incríveis!&rdquo;</blockquote>
+              <figcaption>Camila S. <span>Casamento</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Desde o primeiro atendimento, todo mundo elogiou muito. Tava uma delícia, e muito queridos os dois funcionários que foram lá. Quero uma festa toda de Tic Tac!&rdquo;</blockquote>
+              <figcaption>Sarah A. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Agradeço muito o profissionalismo, a atenção e o carinho com o nosso evento. Vocês brilharam!&rdquo;</blockquote>
+              <figcaption>Mariluce P. <span>Evento corporativo</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi tudo ótimo! As meninas eram muito educadas e estava muito gostoso. Primeira de muitas, já estou pensando no niver do ano que vem!&rdquo;</blockquote>
+              <figcaption>Paula R. <span>Aniversário</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi um momento muito especial, todos os convidados amaram o buffet, e tudo foi feito com muito carinho e cuidado. Uma experiência sensacional!&rdquo;</blockquote>
+              <figcaption>Ana P. <span>Evento</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Eu amei. Desde a estrutura da barraquinha, o profissional e o que foi servido. Muito obrigada!&rdquo;</blockquote>
+              <figcaption>Polyana C. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Que encanto! Adoramos. As meninas foram muito atenciosas.&rdquo;</blockquote>
+              <figcaption>Thamires C. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi ótimo! Todos elogiaram a comida. E a simpatia do pessoal.&rdquo;</blockquote>
+              <figcaption>Gabriela C. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Passando para agradecer, dizer que foi maravilhoso, todos elogiaram bastante. Se eu tiver oportunidade, vou fechar novamente com toda certeza.&rdquo;</blockquote>
+              <figcaption>Jéssica D. <span>Evento</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Nós amamos, foi sucesso, convidados só elogiando. Tudo muito gostoso!&rdquo;</blockquote>
+              <figcaption>Luciana M. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Amamos muito! Estava tudo maravilhoso. Muito obrigada por tudo!&rdquo;</blockquote>
+              <figcaption>Carol F. <span>Evento corporativo</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Passando para agradecer! Estava tudo maravilhoso e super organizado. Adorei!&rdquo;</blockquote>
+              <figcaption>Rafaela M. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi muito boa a experiência! Todo mundo elogiou bastante durante a festa e depois.&rdquo;</blockquote>
+              <figcaption>Gustavo H. <span>Evento</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Muito obrigada pelos serviços de vocês, foi tudo maravilhoso!&rdquo;</blockquote>
+              <figcaption>Andreza S. <span>Evento</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi maravilhoso! Todo mundo amou.&rdquo;</blockquote>
+              <figcaption>Rachel R. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi perfeito! Muito obrigada mais uma vez. A equipe é uma gracinha!&rdquo;</blockquote>
+              <figcaption>Alícia V. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Passando aqui para agradecer pelo atendimento. Todos amaram a qualidade dos produtos e a atenção de vocês!&rdquo;</blockquote>
+              <figcaption>Angel <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Amei o serviço prestado! Infelizmente não consegui comer nada direito, mas todo mundo elogiou tudo.&rdquo;</blockquote>
+              <figcaption>Vitória S. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi tudo ótimo ontem! Muito obrigada por tudo!&rdquo;</blockquote>
+              <figcaption>Letícia D. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi muito bom. O sanduíche fez sucesso, mais do que eu pensei, porque o pessoal queria mais.&rdquo;</blockquote>
+              <figcaption>Carolina M. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Todo mundo amou! Tudo muito bonito, quentinho e saboroso. As meninas também eram uma simpatia.&rdquo;</blockquote>
+              <figcaption>Lorenna F. <span>Festa</span></figcaption>
+            </figure>
+            <figure class="quote is-hidden">
+              <blockquote>&ldquo;Foi tudo perfeito.&rdquo;</blockquote>
+              <figcaption>Isabela N. <span>Festa</span></figcaption>
+            </figure>
+          </div>
+
+          <div class="quotes-more">
+            <button class="btn btn--outline" type="button" data-more="quotes" data-visible="6"
+              data-label-more="Ver todos os 56 depoimentos"
+              data-label-less="Ver menos">Ver todos os 56 depoimentos</button>
+          </div>
+
+          <p class="note note--center">
+            <span class="tbc">Falta a autorização de publicação de cada cliente.</span>
+          </p>
+        </div>
+      </section>
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <div class="container container--narrow">
+          <header class="section-head">
+            <h2>Perguntas frequentes</h2>
+          </header>
+
+          <div class="faq">
+            <details>
+              <summary>Vocês vão até a minha cidade?</summary>
+              <div class="faq-body"><div><p>
+                Atendemos Minas Gerais inteira. Existe uma taxa de deslocamento que varia com a
+                distância — e, dependendo do tamanho do contrato, o frete fica por nossa conta.
+                É só nos dizer onde será a festa que a gente já calcula tudo no orçamento.
+              </p></div></div>
+            </details>
+            <details>
+              <summary>Com quanta antecedência preciso reservar?</summary>
+              <div class="faq-body"><div><p>
+                Quanto antes, melhor — as datas boas voam. O ideal é fechar com pelo menos 15
+                dias. Mas se a sua festa é logo ali, chama a gente mesmo assim: às vezes dá
+                para encaixar.
+              </p></div></div>
+            </details>
+            <details>
+              <summary>Quanto tempo o carrinho fica servindo?</summary>
+              <div class="faq-body"><div><p>
+                São 4 horas de operação, que é o tempo da maioria das festas. Se a sua for mais
+                longa, dá para contratar horas extras — e se perceber na hora que o pessoal quer
+                esticar, a equipe no local resolve com você.
+              </p></div></div>
+            </details>
+            <details>
+              <summary>Como funciona o pagamento?</summary>
+              <div class="faq-body"><div><p>
+                Um sinal reserva a sua data e o restante é pago até um dia antes da festa.
+                Aceitamos Pix, boleto, cartão de crédito e dinheiro — você escolhe o que for
+                mais confortável.
+              </p></div></div>
+            </details>
+            <details>
+              <summary>E se eu precisar mudar a data ou cancelar?</summary>
+              <div class="faq-body"><div><p>
+                Imprevisto acontece. Até 15 dias antes, a gente remarca sem complicação. Para
+                cancelamento, se avisar com 30 dias você recebe de volta o que já pagou. Depois
+                desse prazo, em vez de perder o valor, você fica com um voucher para usar quando
+                quiser.
+              </p></div></div>
+            </details>
+            <details>
+              <summary>Tem opção para quem é vegano ou não pode glúten e lactose?</summary>
+              <div class="faq-body"><div><p>
+                Sim. Vários produtos a gente consegue adaptar. Conte na hora do orçamento quantos
+                convidados têm restrição e qual é — assim ninguém fica de fora na hora de comer.
+              </p></div></div>
+            </details>
+            <details>
+              <summary>Vocês têm pacotes prontos?</summary>
+              <div class="faq-body"><div><p>
+                Não trabalhamos com pacote fechado, e isso é de propósito. Cada festa tem um
+                perfil de convidado, um horário e um clima. A proposta é montada em cima do seu
+                evento, não de uma tabela.
+              </p></div></div>
+            </details>
+            <details>
+              <summary>O que o espaço precisa ter?</summary>
+              <div class="faq-body"><div><p>
+                O carrinho Vintage ocupa 1,20 m de largura por 60 cm de profundidade e tem 2,30 m
+                de altura — vale conferir a altura de portões e portas no caminho.
+                <span class="tbc"
+                  >Confirmar as necessidades de tomada, voltagem e ponto de água.</span
+                >
+              </p></div></div>
+            </details>
+          </div>
+        </div>
+      </section>
+      <!-- MONTE A SUA FESTA (esboço do simulador) -->
+      <section class="section section--cream" id="orcamento">
+        <div class="container">
+          <header class="section-head section-head--center">
+            <h2>Monte a sua festa</h2>
+            <p class="section-lead">
+              Diga quantas pessoas vão, escolha o que quer servir e receba uma estimativa na hora.
+            </p>
+          </header>
+
+          <div class="builder tbc-block">
+            <p class="builder-badge">Em construção — esboço do que vai ficar aqui</p>
+
+            <div class="builder-grid">
+
+              <div class="builder-step">
+                <p class="builder-num">1</p>
+                <h3>Quem vai à festa</h3>
+                <div class="field">
+                  <label for="b-conv">Convidados</label>
+                  <input id="b-conv" type="number" value="80" disabled />
+                </div>
+                <div class="field">
+                  <label for="b-criancas">Crianças de 5 a 10 anos</label>
+                  <input id="b-criancas" type="number" value="10" disabled />
+                </div>
+                <div class="field">
+                  <label for="b-duracao">Duração</label>
+                  <select id="b-duracao" disabled>
+                    <option>4 horas</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="builder-step">
+                <p class="builder-num">2</p>
+                <h3>O que você quer servir</h3>
+                <ul class="chips">
+                  <li class="is-on">Hambúrguer artesanal</li>
+                  <li class="is-on">Pizza brotinho</li>
+                  <li class="is-on">Churros</li>
+                  <li>Risoto</li>
+                  <li>Churrasco</li>
+                  <li>Crepe</li>
+                  <li>Açaí</li>
+                  <li>Sorvete</li>
+                  <li class="chips-more">+ 21 opções</li>
+                </ul>
+                <p class="builder-hint">Quanto mais opções, melhor fica o preço por pessoa.</p>
+              </div>
+
+              <div class="builder-step builder-step--result">
+                <p class="builder-num">3</p>
+                <h3>Sua estimativa</h3>
+                <p class="builder-price">
+                  <span class="tbc">R$ 0.000</span>
+                  <small>para 80 convidados, 4 horas</small>
+                </p>
+                <dl class="builder-lines">
+                  <div><dt>Carrinhos</dt><dd>2 Vintage</dd></div>
+                  <div><dt>Equipe</dt><dd>3 monitores</dd></div>
+                  <div><dt>Deslocamento</dt><dd><span class="tbc">a calcular</span></dd></div>
+                </dl>
+                <a class="btn" data-wa="orcamento" href="#">Quero a minha festa</a>
+              </div>
+
+            </div>
+          </div>
+
+          <p class="note note--center">
+            Enquanto o simulador não fica pronto, é só chamar no WhatsApp:
+            <a data-wa="orcamento" href="#">(31) 99593-6536</a>. Prefere e-mail?
+            <a href="mailto:contato@tictaceventos.com.br">contato@tictaceventos.com.br</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img
+            src="assets/img/logo-branco.png"
+            alt="Tic Tac Gourmet"
+            width="96"
+            height="93"
+          />
+          <p class="footer-tag">#suamelhorfesta</p>
+        </div>
+        <div>
+          <ul class="footer-contact">
+            <li>
+              <a data-wa="contato" href="#"
+                ><svg class="i" aria-hidden="true"><use href="#i-wa" /></svg> (31) 99593-6536</a
+              >
+            </li>
+            <li>
+              <a href="mailto:contato@tictaceventos.com.br"
+                ><svg class="i" aria-hidden="true"><use href="#i-mail" /></svg>
+                contato@tictaceventos.com.br</a
+              >
+            </li>
+            <li>
+              <a href="https://www.instagram.com/tictacgourmet/" target="_blank" rel="noopener"
+                ><svg class="i" aria-hidden="true"><use href="#i-instagram" /></svg>
+                @tictacgourmet</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>
+          © <span data-year>2026</span> Tic Tac Gourmet Ltda · CNPJ 17.881.966/0001-88 ·
+          Rua Arantina, 128 — Belo Horizonte/MG
+        </p>
+      </div>
+    </footer>
+
+    <a class="wa-float" data-wa="orcamento" href="#" aria-label="Falar no WhatsApp">
+      <svg class="i" aria-hidden="true"><use href="#i-wa" /></svg>
+    </a>
+
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-wa" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.23 1.36.2 1.88.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.99 6.67 2.77a9.38 9.38 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.44 9.44M20.08 3.9A11.32 11.32 0 0 0 12.05.58C5.79.58.7 5.67.7 11.92c0 2 .52 3.95 1.52 5.67L.6 23.42l5.96-1.56a11.3 11.3 0 0 0 5.42 1.38h.01c6.25 0 11.34-5.09 11.35-11.34 0-3.03-1.18-5.88-3.32-8.02"
+        />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 -960 960 960">
+        <path
+          fill="currentColor"
+          d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"
+        />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
+        />
+      </symbol>
+      <symbol id="i-star" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12 3.2l2.7 5.6 6.1.9-4.4 4.3 1.1 6.1L12 17.2l-5.5 2.9 1.1-6.1L3.2 9.7l6.1-.9Z" />
+      </symbol>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+          stroke-linejoin="round" d="M12 5v14M6 13l6 6 6-6" />
+      </symbol>
+    </svg>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

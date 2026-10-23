@@ -1,0 +1,11 @@
+.vercel
+.DS_Store
+node_modules/
+.env*
+
+# Material bruto do cliente — fora do versionamento.
+# Histórico de git é permanente: dado pessoal de cliente e a tabela de preços
+# com margem não entram. O material fica em disco e no Drive do cliente.
+feedbacks-clientes/
+logos/
+outros/

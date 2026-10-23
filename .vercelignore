@@ -1,0 +1,15 @@
+# Material bruto do cliente — NUNCA vai para o deploy.
+# Sem isto, a planilha de preços e os prints com dados de clientes
+# ficam acessíveis por URL direta no domínio publicado.
+feedbacks-clientes/
+logos/
+outros/
+docs/
+
+# Fontes e auxiliares do build
+src/
+build.py
+README.md
+
+# Comparações internas de direção visual
+variantes/
