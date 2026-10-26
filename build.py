@@ -14,6 +14,7 @@ PARTS = [
     's-hero.html',
     's-cardapio.html',
     's-como-funciona.html',
+    's-sobre.html',
     's-depoimentos.html',
     's-faq.html',
     's-cta-final.html',

@@ -629,6 +629,35 @@ h3 {
   margin: 0;
 }
 
+/* ---------- sobre ---------- */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.sobre-text .section-head {
+  margin-bottom: 28px;
+}
+.sobre-text p {
+  color: var(--muted);
+  margin: 0 0 16px;
+  line-height: 1.75;
+}
+.sobre-text p:last-child {
+  margin-bottom: 0;
+}
+.sobre-media {
+  aspect-ratio: 4 / 3;
+  background: var(--warm);
+}
+@media (max-width: 760px) {
+  .sobre-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
 /* ---------- depoimentos ---------- */
 .quotes {
   display: grid;
