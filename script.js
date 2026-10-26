@@ -201,6 +201,53 @@ document.querySelectorAll('.faq details').forEach((det) => {
   update();
 })();
 
+// ── lightbox ───────────────────────────────────────────
+(() => {
+  const lb      = document.getElementById('lightbox');
+  const lbImg   = document.getElementById('lightbox-img');
+  const lbClose = document.getElementById('lightbox-close');
+  const lbPrev  = document.getElementById('lightbox-prev');
+  const lbNext  = document.getElementById('lightbox-next');
+  if (!lb) return;
+
+  const imgs = [...document.querySelectorAll('.sobre-mosaic .mosaic-item img')];
+  let current = 0;
+
+  const show = (idx) => {
+    current = (idx + imgs.length) % imgs.length;
+    lbImg.src = imgs[current].src;
+    lbImg.alt = imgs[current].alt;
+    lbPrev.hidden = imgs.length <= 1;
+    lbNext.hidden = imgs.length <= 1;
+  };
+  const open = (idx) => {
+    show(idx);
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+  };
+  const close = () => {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  };
+
+  imgs.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => open(i));
+  });
+
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', () => show(current - 1));
+  lbNext.addEventListener('click', () => show(current + 1));
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', e => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
+})();
+
 // O botão do WhatsApp recua quando o rodapé entra na tela, para não cobri-lo.
 (() => {
   const footer = document.querySelector('.site-footer');
