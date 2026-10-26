@@ -1,4 +1,4 @@
-      <!-- MONTE A SUA FESTA (esboço do simulador) -->
+      <!-- MONTE A SUA FESTA -->
       <section class="section section--cream" id="orcamento">
         <div class="container">
           <header class="section-head section-head--center">
@@ -8,68 +8,148 @@
             </p>
           </header>
 
-          <div class="builder tbc-block">
-            <p class="builder-badge">Em construção — esboço do que vai ficar aqui</p>
-
+          <div class="builder" id="builder">
             <div class="builder-grid">
 
               <div class="builder-step">
                 <p class="builder-num">1</p>
-                <h3>Quem vai à festa</h3>
+                <h3>Sobre a festa</h3>
                 <div class="field">
-                  <label for="b-conv">Convidados</label>
-                  <input id="b-conv" type="number" value="80" disabled />
+                  <label>Tipo de evento</label>
+                  <ul class="chips chips--single" id="b-tipo">
+                    <li class="is-on" data-tipo>Aniversário</li>
+                    <li data-tipo>Casamento</li>
+                    <li data-tipo>Corporativo</li>
+                    <li data-tipo>Formatura</li>
+                    <li data-tipo>Outro</li>
+                  </ul>
                 </div>
                 <div class="field">
-                  <label for="b-criancas">Crianças de 5 a 10 anos</label>
-                  <input id="b-criancas" type="number" value="10" disabled />
+                  <label for="b-conv">Convidados adultos</label>
+                  <div class="stepper">
+                    <button class="stepper-btn" data-target="b-conv" data-step="-10" aria-label="Menos 10">−10</button>
+                    <button class="stepper-btn" data-target="b-conv" data-step="-1" aria-label="Menos 1">−1</button>
+                    <input id="b-conv" class="stepper-input" type="text" inputmode="numeric" pattern="[0-9]*" value="80" />
+                    <button class="stepper-btn" data-target="b-conv" data-step="1" aria-label="Mais 1">+1</button>
+                    <button class="stepper-btn" data-target="b-conv" data-step="10" aria-label="Mais 10">+10</button>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="b-criancas">Crianças (5 a 10 anos)</label>
+                  <div class="stepper">
+                    <button class="stepper-btn" data-target="b-criancas" data-step="-10" aria-label="Menos 10">−10</button>
+                    <button class="stepper-btn" data-target="b-criancas" data-step="-1" aria-label="Menos 1">−1</button>
+                    <input id="b-criancas" class="stepper-input" type="text" inputmode="numeric" pattern="[0-9]*" value="10" />
+                    <button class="stepper-btn" data-target="b-criancas" data-step="1" aria-label="Mais 1">+1</button>
+                    <button class="stepper-btn" data-target="b-criancas" data-step="10" aria-label="Mais 10">+10</button>
+                  </div>
                 </div>
                 <div class="field">
                   <label for="b-duracao">Duração</label>
-                  <select id="b-duracao" disabled>
-                    <option>4 horas</option>
-                  </select>
+                  <div class="stepper">
+                    <button class="stepper-btn" data-target="b-duracao" data-step="-1" aria-label="Menos 1 hora">−1h</button>
+                    <input id="b-duracao" class="stepper-input" type="text" inputmode="numeric" pattern="[0-9]*" value="4" data-min="2" />
+                    <button class="stepper-btn" data-target="b-duracao" data-step="1" aria-label="Mais 1 hora">+1h</button>
+                  </div>
                 </div>
               </div>
 
               <div class="builder-step">
                 <p class="builder-num">2</p>
                 <h3>O que você quer servir</h3>
-                <ul class="chips">
-                  <li class="is-on">Hambúrguer artesanal</li>
-                  <li class="is-on">Pizza brotinho</li>
-                  <li class="is-on">Churros</li>
-                  <li>Risoto</li>
-                  <li>Churrasco</li>
-                  <li>Crepe</li>
-                  <li>Açaí</li>
-                  <li>Sorvete</li>
-                  <li class="chips-more">+ 21 opções</li>
+                <ul class="chips" id="b-chips">
+                  <li class="is-on" data-item>Hambúrguer artesanal</li>
+                  <li class="is-on" data-item>Pizza brotinho</li>
+                  <li class="is-on" data-item>Churros</li>
+                  <li data-item>Hot dog</li>
+                  <li data-item>Risoto</li>
+                  <li data-item>Churrasco</li>
+                  <li data-item>Crepe</li>
+                  <li data-item>Açaí</li>
+                  <li data-item>Sorvete</li>
+                  <li data-item>Pão de queijo recheado</li>
+                  <li data-item>Massa</li>
+                  <li data-item>Pastelzinho</li>
+                  <li data-item>Tropeiro</li>
+                  <li data-item>Frios e charcutaria</li>
+                  <li data-item>Milho</li>
+                  <li data-item>Caldos</li>
+                  <li data-item>Saladinha</li>
+                  <li data-item>Brigadeiro</li>
+                  <li data-item>Picolé</li>
+                  <li data-item>Copo da felicidade</li>
+                  <li data-item>Fondue de chocolate</li>
+                  <li data-item>Milk shake</li>
+                  <li data-item>Algodão doce</li>
+                  <li data-item>Doces e guloseimas</li>
+                  <li data-item>Sucos</li>
+                  <li data-item>Refrigerantes</li>
+                  <li data-item>Cerveja</li>
+                  <li data-item>Drinks</li>
+                  <li data-item>Água</li>
                 </ul>
                 <p class="builder-hint">Quanto mais opções, melhor fica o preço por pessoa.</p>
               </div>
 
-              <div class="builder-step builder-step--result">
+              <div class="builder-step builder-step--contact">
                 <p class="builder-num">3</p>
-                <h3>Sua estimativa</h3>
-                <p class="builder-price">
-                  <span class="tbc">R$ 0.000</span>
-                  <small>para 80 convidados, 4 horas</small>
-                </p>
+                <h3>Seus dados</h3>
+                <div class="contact-grid">
+                  <div class="field">
+                    <label for="b-nome">Nome</label>
+                    <input id="b-nome" type="text" placeholder="Como podemos te chamar?" />
+                  </div>
+                  <div class="field">
+                    <label for="b-email">E-mail</label>
+                    <input id="b-email" type="email" placeholder="seu@email.com" />
+                  </div>
+                  <div class="field">
+                    <label for="b-tel">WhatsApp</label>
+                    <input id="b-tel" type="tel" placeholder="(31) 99999-9999" />
+                  </div>
+                  <div class="field">
+                    <label for="b-bairro">Bairro do evento</label>
+                    <input id="b-bairro" type="text" placeholder="Ex: Savassi" />
+                  </div>
+                  <div class="field">
+                    <label for="b-cidade">Cidade</label>
+                    <input id="b-cidade" type="text" placeholder="Ex: Belo Horizonte" />
+                  </div>
+                  <div class="field">
+                    <label for="b-data">Data prevista</label>
+                    <input id="b-data" type="date" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="b-obs">Observações <span class="field-counter" id="b-obs-count">0 / 400</span></label>
+                  <textarea id="b-obs" maxlength="400" rows="3" placeholder="Tema da festa, restrições alimentares dos convidados, algo especial que quer incluir..."></textarea>
+                </div>
+              </div>
+
+              <div class="builder-step builder-step--result">
+                <div class="result-price">
+                  <p class="builder-price">
+                    <span id="b-price">R$ 8.000</span>
+                    <small id="b-summary">para 90 convidados, 4 horas</small>
+                  </p>
+                  <p class="builder-note">* Estimativa ilustrativa. Valores reais são calculados no orçamento.</p>
+                </div>
                 <dl class="builder-lines">
-                  <div><dt>Carrinhos</dt><dd>2 Vintage</dd></div>
-                  <div><dt>Equipe</dt><dd>3 monitores</dd></div>
+                  <div><dt>Carrinhos</dt><dd id="b-carts">2 carrinhos</dd></div>
+                  <div><dt>Equipe</dt><dd id="b-monitors">3 monitores</dd></div>
                   <div><dt>Deslocamento</dt><dd><span class="tbc">a calcular</span></dd></div>
                 </dl>
-                <a class="btn" data-wa="orcamento" href="#">Quero a minha festa</a>
+                <div class="result-action">
+                  <a class="btn" id="b-submit" href="#">Quero a minha festa</a>
+                </div>
               </div>
 
             </div>
           </div>
 
           <p class="note note--center">
-            Enquanto o simulador não fica pronto, é só chamar no WhatsApp:
-            <a data-wa="orcamento" href="#">(31) 99593-6536</a>. Prefere e-mail?
+            Prefere chamar direto?
+            <a data-wa="orcamento" href="#">(31) 99593-6536</a>. Ou por e-mail:
             <a href="mailto:contato@tictaceventos.com.br">contato@tictaceventos.com.br</a>
           </p>
         </div>
