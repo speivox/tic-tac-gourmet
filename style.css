@@ -800,6 +800,9 @@ h3 {
 }
 
 /* ---------- monte a sua festa (esboço) ---------- */
+#orcamento {
+  padding-bottom: 48px;
+}
 .builder {
   background: var(--white);
   border: 1px solid var(--warm);
@@ -1085,16 +1088,14 @@ h3 {
 .site-footer {
   background: var(--brown);
   color: var(--warm);
-  padding: 72px 0 28px;
+  padding: 44px 0 24px;
   border-top: 1px solid #4a3122;
-  /* folga para o botão flutuante, caso o JS não rode */
-  padding-bottom: 96px;
 }
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   gap: 48px;
-  padding-bottom: 44px;
+  padding-bottom: 24px;
 }
 .footer-brand img {
   height: 76px;
