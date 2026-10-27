@@ -845,35 +845,35 @@
               <div class="builder-step">
                 <h3>O que você quer servir</h3>
                 <ul class="chips" id="b-chips">
-                  <li class="is-on" data-item>Hambúrguer artesanal</li>
-                  <li class="is-on" data-item>Pizza brotinho</li>
-                  <li class="is-on" data-item>Churros</li>
-                  <li data-item>Hot dog</li>
-                  <li data-item>Risoto</li>
-                  <li data-item>Churrasco</li>
-                  <li data-item>Crepe</li>
-                  <li data-item>Açaí</li>
-                  <li data-item>Sorvete</li>
-                  <li data-item>Pão de queijo recheado</li>
-                  <li data-item>Massa</li>
-                  <li data-item>Pastelzinho</li>
-                  <li data-item>Tropeiro</li>
-                  <li data-item>Frios e charcutaria</li>
-                  <li data-item>Milho</li>
-                  <li data-item>Caldos</li>
-                  <li data-item>Saladinha</li>
-                  <li data-item>Brigadeiro</li>
-                  <li data-item>Picolé</li>
-                  <li data-item>Copo da felicidade</li>
-                  <li data-item>Fondue de chocolate</li>
-                  <li data-item>Milk shake</li>
-                  <li data-item>Algodão doce</li>
-                  <li data-item>Doces e guloseimas</li>
-                  <li data-item>Sucos</li>
-                  <li data-item>Refrigerantes</li>
-                  <li data-item>Cerveja</li>
-                  <li data-item>Drinks</li>
-                  <li data-item>Água</li>
+                  <li class="is-on" data-item="MH">Hambúrguer artesanal</li>
+                  <li class="is-on" data-item="PB">Pizza brotinho</li>
+                  <li class="is-on" data-item="MC">Churros</li>
+                  <li data-item="HD">Hot dog</li>
+                  <li data-item="RS">Risoto</li>
+                  <li data-item="CH">Churrasco</li>
+                  <li data-item="CF">Crepe</li>
+                  <li data-item="AA">Açaí</li>
+                  <li data-item="SV">Sorvete</li>
+                  <li data-item="PQ">Pão de queijo recheado</li>
+                  <li data-item="MA">Massa</li>
+                  <li data-item="PA">Pastelzinho</li>
+                  <li data-item="TR">Tropeiro</li>
+                  <li data-item="FR">Frios e charcutaria</li>
+                  <li data-item="ME">Milho</li>
+                  <li data-item="CL">Caldos</li>
+                  <li data-item="SL">Saladinha</li>
+                  <li data-item="BG">Brigadeiro</li>
+                  <li data-item="PC">Picolé</li>
+                  <li data-item="FE">Copo da felicidade</li>
+                  <li data-item="FC">Fondue de chocolate</li>
+                  <li data-item="MS">Milk shake</li>
+                  <li data-item="AD">Algodão doce</li>
+                  <li data-item="GS">Doces e guloseimas</li>
+                  <li data-item="BB">Sucos</li>
+                  <li data-item="BB">Refrigerantes</li>
+                  <li data-item="CV">Cerveja</li>
+                  <li data-item="DA">Drinks</li>
+                  <li data-item="BB">Água</li>
                 </ul>
                 <p class="builder-hint">Quanto mais opções, melhor fica o preço por pessoa.</p>
               </div>
@@ -910,15 +910,23 @@
                   <label for="b-obs">Observações <span class="field-counter" id="b-obs-count">0 / 400</span></label>
                   <textarea id="b-obs" maxlength="400" rows="3" placeholder="Tema da festa, restrições alimentares dos convidados, algo especial que quer incluir..."></textarea>
                 </div>
+                <div class="result-action">
+                  <a class="btn" id="b-submit" href="#">Ver minha estimativa</a>
+                </div>
               </div>
 
-              <div class="builder-step builder-step--result">
+              <div class="builder-step builder-step--result" id="b-result" hidden>
                 <div class="result-price">
                   <p class="builder-price">
-                    <span id="b-price">R$ 8.000</span>
+                    <small class="price-prefix">A partir de</small>
+                    <span id="b-price">—</span>
                     <small id="b-summary">para 90 convidados, 4 horas</small>
                   </p>
-                  <p class="builder-note">* Estimativa ilustrativa. Valores reais são calculados no orçamento.</p>
+                  <p class="builder-note" id="b-note">
+                    Estimativa calculada com a nossa tabela, considerando pagamento à vista.
+                    O orçamento final é confirmado pela nossa equipe.
+                  </p>
+                  <p class="builder-alert" id="b-alert" hidden></p>
                 </div>
                 <dl class="builder-lines">
                   <div><dt>Carrinhos</dt><dd id="b-carts">2 carrinhos</dd></div>
@@ -926,7 +934,7 @@
                   <div><dt>Deslocamento</dt><dd><span class="tbc">a calcular</span></dd></div>
                 </dl>
                 <div class="result-action">
-                  <a class="btn" id="b-submit" href="#">Quero a minha festa</a>
+                  <a class="btn btn--inv" id="b-wa" href="#">Solicitar orçamento</a>
                 </div>
               </div>
 

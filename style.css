@@ -949,12 +949,17 @@ h3 {
   gap: 40px;
   flex-wrap: wrap;
 }
+.builder-step--result[hidden] { display: none; }
 .result-price {
   flex: 0 0 auto;
 }
 .result-action {
   margin-left: auto;
   flex: 0 0 auto;
+}
+.builder-step--contact .result-action {
+  margin-left: 0;
+  margin-top: 8px;
 }
 .builder-num {
   margin: 0 0 14px;
@@ -1130,11 +1135,35 @@ h3 {
   margin: 0;
   font-size: 0.85rem;
 }
+.builder-price .price-prefix {
+  margin: 0 0 2px;
+  text-transform: uppercase;
+}
+/* O valor vem do servidor, então marca que o número na tela está sendo trocado. */
+#b-price {
+  transition: opacity 0.18s;
+}
+#b-price.is-loading {
+  opacity: 0.4;
+}
 .builder-note {
   margin: 16px 0 0;
   font-size: 0.68rem;
   color: var(--muted);
   line-height: 1.5;
+  max-width: 46ch;
+}
+.builder-alert {
+  margin: 12px 0 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--olive);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--sage);
+  max-width: 46ch;
+}
+.builder-alert[hidden] {
+  display: none;
 }
 
 .builder-step:nth-child(2) {

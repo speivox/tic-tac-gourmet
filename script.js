@@ -83,7 +83,10 @@ document.querySelectorAll('.faq details').forEach((det) => {
   });
 });
 
-// ── simulador de orçamento (valores ilustrativos) ──────
+// ── simulador de orçamento ─────────────────────────────
+// O cálculo acontece em /api/estimativa, e não aqui, para que a tabela de
+// preços e consumo do cliente não fique publicamente acessível. O motor está em
+// api/_motor.js e a tabela é gerada por tools/extrair_precos.py.
 (() => {
   const builder = document.getElementById('builder');
   if (!builder) return;
@@ -96,13 +99,14 @@ document.querySelectorAll('.faq details').forEach((det) => {
   const cartsEl      = document.getElementById('b-carts');
   const monitorsEl   = document.getElementById('b-monitors');
   const chipsEl      = document.getElementById('b-chips');
+  const alertEl      = document.getElementById('b-alert');
 
   // chips de cardápio — multi-select
   chipsEl.addEventListener('click', e => {
     const li = e.target.closest('li');
     if (!li || !li.hasAttribute('data-item')) return;
     li.classList.toggle('is-on');
-    update();
+    agendarCalculo();
   });
 
   // chips de tipo de evento — single-select
@@ -121,9 +125,19 @@ document.querySelectorAll('.faq details').forEach((det) => {
     obsCount.textContent = `${obsEl.value.length} / ${obsEl.maxLength}`;
   });
 
-  // botão de envio — monta mensagem de WhatsApp com os dados
+  // botão "Ver minha estimativa" — revela a barra de resultado
+  const resultEl = document.getElementById('b-result');
   const submitBtn = document.getElementById('b-submit');
   submitBtn.addEventListener('click', e => {
+    e.preventDefault();
+    resultEl.hidden = false;
+    resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    calcular();
+  });
+
+  // botão WhatsApp — monta mensagem com os dados do formulário
+  const waBtn = document.getElementById('b-wa');
+  waBtn.addEventListener('click', e => {
     e.preventDefault();
     const nome    = document.getElementById('b-nome').value.trim();
     const tel     = document.getElementById('b-tel').value.trim();
@@ -136,8 +150,8 @@ document.querySelectorAll('.faq details').forEach((det) => {
     const adults  = convInput.value;
     const kids    = criancasInput.value;
     const hours   = duracaoSel.value;
-    const price   = document.getElementById('b-price').textContent;
-    const itens   = [...chipsEl.querySelectorAll('li[data-item].is-on')].map(l => l.textContent).join(', ');
+    const price   = priceEl.textContent;
+    const itens   = chipsLigados().map(l => l.textContent.trim()).join(', ');
 
     const linhas = [
       `Olá! Vim pelo site e quero montar a minha festa. 🎉`,
@@ -150,7 +164,7 @@ document.querySelectorAll('.faq details').forEach((det) => {
       `*Convidados:* ${adults} adultos, ${kids} crianças`,
       `*Duração:* ${hours} horas`,
       itens   ? `*Cardápio de interesse:* ${itens}` : '',
-      `*Estimativa no site:* ${price}`,
+      price !== '—' ? `*Estimativa no site:* a partir de ${price}` : '',
       obs     ? `*Observações:* ${obs}`  : '',
     ].filter(Boolean).join('\n');
 
@@ -166,39 +180,97 @@ document.querySelectorAll('.faq details').forEach((det) => {
       const max   = parseInt(input.dataset.max ?? 9999);
       const val   = Math.min(max, Math.max(min, (parseInt(input.value) || 0) + step));
       input.value = val;
-      update();
+      agendarCalculo();
     });
   });
 
   [convInput, criancasInput, duracaoSel].forEach(el =>
-    el.addEventListener('input', update)
+    el.addEventListener('input', agendarCalculo)
   );
 
-  function update() {
-    const adults  = Math.max(0, parseInt(convInput.value)     || 0);
-    const kids    = Math.max(0, parseInt(criancasInput.value) || 0);
-    const hours   = Math.max(2, parseInt(duracaoSel.value)    || 4);
-    const items   = chipsEl.querySelectorAll('li[data-item].is-on').length;
-    const total   = adults + kids;
-
-    // fórmula fictícia — apenas ilustrativa
-    const rateAdult = 89;
-    const rateKid   = 55;
-    const durMult   = 1.0 + (hours - 4) * 0.18; // +18% por hora além de 4h, -18% abaixo
-    const discount  = items <= 2 ? 0 : items <= 4 ? 0.05 : items <= 6 ? 0.08 : 0.12;
-    const raw       = (adults * rateAdult + kids * rateKid) * durMult * (1 - discount);
-    const price     = Math.max(3800, Math.round(raw / 100) * 100);
-
-    const carts    = Math.max(1, Math.ceil(adults / 60));
-    const monitors = carts + (total >= 50 ? 1 : 0);
-
-    priceEl.textContent   = 'R$ ' + price.toLocaleString('pt-BR');
-    summaryEl.textContent = `para ${total} convidado${total !== 1 ? 's' : ''}, ${hours} hora${hours !== 1 ? 's' : ''}`;
-    cartsEl.textContent   = `${carts} carrinho${carts !== 1 ? 's' : ''}`;
-    monitorsEl.textContent= `${monitors} monitor${monitors !== 1 ? 'es' : ''}`;
+  function chipsLigados() {
+    return [...chipsEl.querySelectorAll('li[data-item].is-on')];
   }
 
-  update();
+  function coletar() {
+    return {
+      adultos:  Math.max(0, parseInt(convInput.value)     || 0),
+      criancas: Math.max(0, parseInt(criancasInput.value) || 0),
+      horas:    Math.max(2, parseInt(duracaoSel.value)    || 4),
+      itens:    chipsLigados().map(li => li.dataset.item),
+    };
+  }
+
+  // Enquanto o resultado está escondido não há o que recalcular: o preço só
+  // aparece depois que a pessoa pede.
+  let adiar = null;
+  function agendarCalculo() {
+    if (resultEl.hidden) return;
+    clearTimeout(adiar);
+    adiar = setTimeout(calcular, 300);
+  }
+
+  // Respostas fora de ordem são descartadas: só a do pedido mais recente vale.
+  let pedido = 0;
+  async function calcular() {
+    const meu = ++pedido;
+    const entrada = coletar();
+    priceEl.classList.add('is-loading');
+    try {
+      const resp = await fetch('/api/estimativa', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(entrada),
+      });
+      if (!resp.ok) throw new Error(resp.status);
+      const r = await resp.json();
+      if (meu === pedido) mostrar(entrada, r);
+    } catch {
+      if (meu !== pedido) return;
+      priceEl.textContent = '—';
+      alertEl.textContent = 'Não conseguimos calcular a estimativa agora. '
+        + 'Chame no WhatsApp que a gente monta o orçamento na hora.';
+      alertEl.hidden = false;
+    } finally {
+      if (meu === pedido) priceEl.classList.remove('is-loading');
+    }
+  }
+
+  function mostrar(entrada, r) {
+    const convidados = entrada.adultos + entrada.criancas;
+
+    priceEl.textContent = r.temEstimativa
+      ? 'R$ ' + r.piso.toLocaleString('pt-BR')
+      : '—';
+    summaryEl.textContent =
+      `para ${convidados} convidado${convidados !== 1 ? 's' : ''}, ` +
+      `${entrada.horas} hora${entrada.horas !== 1 ? 's' : ''}`;
+    cartsEl.textContent    = `${r.carrinhos} carrinho${r.carrinhos !== 1 ? 's' : ''}`;
+    monitorsEl.textContent = `${r.monitores} monitor${r.monitores !== 1 ? 'es' : ''}`;
+
+    const avisos = [];
+    if (r.semPreco.length) {
+      const nomes = chipsLigados()
+        .filter(li => r.semPreco.includes(li.dataset.item))
+        .map(li => li.textContent.trim());
+      const plural = nomes.length > 1;
+      avisos.push(`${nomes.join(', ')} ${plural ? 'são orçados' : 'é orçado'} à parte e `
+        + `não ${plural ? 'entram' : 'entra'} neste valor.`);
+    }
+    if (r.horasExtras > 0) {
+      avisos.push(`Inclui ${r.horasExtras} hora${r.horasExtras !== 1 ? 's' : ''} extra `
+        + 'além das 4 horas padrão.');
+    }
+    if (r.excedeMaximo) {
+      const porPessoa = r.unidadesPorPessoa.toLocaleString('pt-BR', {
+        minimumFractionDigits: 1, maximumFractionDigits: 1,
+      });
+      avisos.push(`A seleção dá ${porPessoa} porções por pessoa, acima das `
+        + `${r.maxUnidadesPorPessoa} que indicamos. Dá para enxugar sem faltar comida.`);
+    }
+    alertEl.textContent = avisos.join(' ');
+    alertEl.hidden = avisos.length === 0;
+  }
 })();
 
 // ── lightbox ───────────────────────────────────────────

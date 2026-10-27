@@ -1,6 +1,7 @@
 .vercel
 .DS_Store
 node_modules/
+__pycache__/
 .env*
 
 # Material bruto do cliente — fora do versionamento.

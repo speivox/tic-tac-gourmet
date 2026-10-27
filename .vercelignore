@@ -9,6 +9,7 @@ docs/
 # Fontes e auxiliares do build
 src/
 build.py
+tools/
 README.md
 
 # Comparações internas de direção visual
