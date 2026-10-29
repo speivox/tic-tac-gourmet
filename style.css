@@ -1165,6 +1165,21 @@ h3 {
 .builder-alert[hidden] {
   display: none;
 }
+.builder-alert--erro {
+  border-left-color: #b34040;
+  color: #b34040;
+}
+.field-error {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  font-size: 0.7rem;
+  line-height: 1.3;
+  color: #b34040;
+  visibility: hidden;
+}
+.field-error.is-visible { visibility: visible; }
+.is-invalid { border-color: #b34040 !important; }
 
 .builder-step:nth-child(2) {
   grid-column: span 2;

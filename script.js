@@ -130,8 +130,10 @@ document.querySelectorAll('.faq details').forEach((det) => {
   const submitBtn = document.getElementById('b-submit');
   submitBtn.addEventListener('click', e => {
     e.preventDefault();
+    if (validar()) return;
     resultEl.hidden = false;
     resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (!leadEnviado) { enviarLead('estimativa'); leadEnviado = true; }
     calcular();
   });
 
@@ -139,6 +141,7 @@ document.querySelectorAll('.faq details').forEach((det) => {
   const waBtn = document.getElementById('b-wa');
   waBtn.addEventListener('click', e => {
     e.preventDefault();
+    if (!leadEnviado) { enviarLead('whatsapp'); leadEnviado = true; }
     const nome    = document.getElementById('b-nome').value.trim();
     const tel     = document.getElementById('b-tel').value.trim();
     const email   = document.getElementById('b-email').value.trim();
@@ -201,6 +204,109 @@ document.querySelectorAll('.faq details').forEach((det) => {
     };
   }
 
+  // ── validação inline dos campos de contato ────────────────
+  const dataInput  = document.getElementById('b-data');
+  const emailInput = document.getElementById('b-email');
+  const telInput   = document.getElementById('b-tel');
+
+  if (dataInput) dataInput.min = new Date().toISOString().split('T')[0];
+
+  // Formata o telefone enquanto o usuário digita: (31) 9999-9999 ou (31) 99999-9999
+  function formatarTel(digits) {
+    const d = digits.slice(0, 11);
+    if (d.length <= 2)  return d;
+    if (d.length <= 6)  return `(${d.slice(0,2)}) ${d.slice(2)}`;
+    if (d.length <= 10) return `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`;
+    return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
+  }
+  if (telInput) {
+    telInput.addEventListener('input', () => {
+      const digits = telInput.value.replace(/\D/g, '');
+      const pos    = telInput.selectionStart;
+      const antes  = telInput.value.slice(0, pos).replace(/\D/g, '').length;
+      telInput.value = formatarTel(digits);
+      // Reposicionar cursor pelo número de dígitos antes do cursor
+      let cont = 0, nova = telInput.value.length;
+      for (let i = 0; i < telInput.value.length; i++) {
+        if (/\d/.test(telInput.value[i])) cont++;
+        if (cont === antes) { nova = i + 1; break; }
+      }
+      telInput.setSelectionRange(nova, nova);
+    });
+  }
+
+  // Cria span de erro inline abaixo de um campo
+  function criarErroInline(input, checar) {
+    if (!input) return { mostrar: () => false };
+    const field = input.closest('.field');
+    if (!field) return { mostrar: () => false };
+    field.style.position    = 'relative';
+    field.style.paddingBottom = '20px';
+    const span = document.createElement('span');
+    span.className = 'field-error';
+    field.append(span);
+    const mostrar = () => {
+      const msg = checar();
+      span.textContent = msg;
+      span.classList.toggle('is-visible', !!msg);
+      input.classList.toggle('is-invalid', !!msg);
+      return !!msg;
+    };
+    input.addEventListener('blur',  mostrar);
+    input.addEventListener('input', () => { span.classList.remove('is-visible'); input.classList.remove('is-invalid'); });
+    return { mostrar };
+  }
+
+  const campoEmail = criarErroInline(emailInput, () =>
+    emailInput.value.trim() && !emailInput.checkValidity() ? 'E-mail inválido.' : '');
+
+  const campoTel = criarErroInline(telInput, () => {
+    const d = (telInput.value || '').replace(/\D/g, '');
+    return d && !/^\d{10,11}$/.test(d) ? 'WhatsApp inválido — use (31) 99999-9999.' : '';
+  });
+
+  const campoData = criarErroInline(dataInput, () =>
+    dataInput?.value && !dataInput.checkValidity() ? 'A data do evento não pode ser no passado.' : '');
+
+  function validar() {
+    const e1 = campoEmail.mostrar();
+    const e2 = campoTel.mostrar();
+    const e3 = campoData.mostrar();
+    if (e1) emailInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    else if (e2) telInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    else if (e3) dataInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return e1 || e2 || e3;
+  }
+
+  // Último resultado bem-sucedido — usado por enviarLead('whatsapp') para incluir o piso.
+  let ultimoResultado = null;
+  let leadEnviado = false;
+
+  function enviarLead(origem) {
+    const entrada = coletar();
+    const dados = {
+      origem,
+      nome:     document.getElementById('b-nome').value.trim(),
+      tel:      document.getElementById('b-tel').value.trim(),
+      email:    document.getElementById('b-email').value.trim(),
+      tipo:     tipoEl.querySelector('li.is-on')?.textContent?.trim() ?? '',
+      data:     document.getElementById('b-data').value,
+      bairro:   document.getElementById('b-bairro').value.trim(),
+      cidade:   document.getElementById('b-cidade').value.trim(),
+      adultos:  entrada.adultos,
+      criancas: entrada.criancas,
+      horas:    entrada.horas,
+      itens:    entrada.itens,
+      piso:     ultimoResultado?.piso ?? 0,
+      obs:      obsEl.value.trim(),
+    };
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dados),
+    }).catch(() => {});
+  }
+
   // Enquanto o resultado está escondido não há o que recalcular: o preço só
   // aparece depois que a pessoa pede.
   let adiar = null;
@@ -237,6 +343,7 @@ document.querySelectorAll('.faq details').forEach((det) => {
   }
 
   function mostrar(entrada, r) {
+    ultimoResultado = r;
     const convidados = entrada.adultos + entrada.criancas;
 
     priceEl.textContent = r.temEstimativa
