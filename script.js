@@ -141,7 +141,9 @@ document.querySelectorAll('.faq details').forEach((det) => {
   const waBtn = document.getElementById('b-wa');
   waBtn.addEventListener('click', e => {
     e.preventDefault();
-    if (!leadEnviado) { enviarLead('whatsapp'); leadEnviado = true; }
+    const temDadosMinimos = nomeInput?.value.trim()
+      && (telInput?.value || '').replace(/\D/g, '').length >= 10;
+    if (!leadEnviado && temDadosMinimos) { enviarLead('whatsapp'); leadEnviado = true; }
     const nome    = document.getElementById('b-nome').value.trim();
     const tel     = document.getElementById('b-tel').value.trim();
     const email   = document.getElementById('b-email').value.trim();
@@ -205,6 +207,7 @@ document.querySelectorAll('.faq details').forEach((det) => {
   }
 
   // ── validação inline dos campos de contato ────────────────
+  const nomeInput  = document.getElementById('b-nome');
   const dataInput  = document.getElementById('b-data');
   const emailInput = document.getElementById('b-email');
   const telInput   = document.getElementById('b-tel');
@@ -257,25 +260,31 @@ document.querySelectorAll('.faq details').forEach((det) => {
     return { mostrar };
   }
 
+  const campoNome = criarErroInline(nomeInput, () =>
+    !nomeInput.value.trim() ? 'Nome é obrigatório.' : '');
+
   const campoEmail = criarErroInline(emailInput, () =>
     emailInput.value.trim() && !emailInput.checkValidity() ? 'E-mail inválido.' : '');
 
   const campoTel = criarErroInline(telInput, () => {
     const d = (telInput.value || '').replace(/\D/g, '');
-    return d && !/^\d{10,11}$/.test(d) ? 'WhatsApp inválido — use (31) 99999-9999.' : '';
+    if (!d) return 'WhatsApp é obrigatório.';
+    return !/^\d{10,11}$/.test(d) ? 'WhatsApp inválido — use (31) 99999-9999.' : '';
   });
 
   const campoData = criarErroInline(dataInput, () =>
     dataInput?.value && !dataInput.checkValidity() ? 'A data do evento não pode ser no passado.' : '');
 
   function validar() {
+    const e0 = campoNome.mostrar();
     const e1 = campoEmail.mostrar();
     const e2 = campoTel.mostrar();
     const e3 = campoData.mostrar();
-    if (e1) emailInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (e0) nomeInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    else if (e1) emailInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     else if (e2) telInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     else if (e3) dataInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return e1 || e2 || e3;
+    return e0 || e1 || e2 || e3;
   }
 
   // Último resultado bem-sucedido — usado por enviarLead('whatsapp') para incluir o piso.
