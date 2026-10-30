@@ -335,6 +335,22 @@ h3 {
 }
 .cart {
   background: var(--white);
+}
+.cart-media {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+.cart-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.cart:hover .cart-media img {
+  transform: scale(1.03);
+}
+.cart-body {
   padding: 40px 36px;
 }
 .cart h3 {
@@ -1475,7 +1491,7 @@ h3 {
   .rating-meta b {
     margin-bottom: 2px;
   }
-  .cart {
+  .cart-body {
     padding: 32px 24px;
   }
   .builder-grid {
