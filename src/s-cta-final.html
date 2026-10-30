@@ -14,8 +14,8 @@
               <div class="builder-step">
                 <h3>Sobre a festa</h3>
                 <div class="field">
-                  <label>Tipo de evento</label>
-                  <ul class="chips chips--single" id="b-tipo">
+                  <label id="b-tipo-label">Tipo de evento</label>
+                  <ul class="chips chips--single" id="b-tipo" role="group" aria-labelledby="b-tipo-label">
                     <li class="is-on" data-tipo>Aniversário</li>
                     <li data-tipo>Casamento</li>
                     <li data-tipo>Corporativo</li>
@@ -55,7 +55,7 @@
 
               <div class="builder-step">
                 <h3>O que você quer servir</h3>
-                <ul class="chips" id="b-chips">
+                <ul class="chips" id="b-chips" role="group" aria-label="Itens do cardápio">
                   <li class="is-on" data-item="MH">Hambúrguer artesanal</li>
                   <li class="is-on" data-item="PB">Pizza brotinho</li>
                   <li class="is-on" data-item="MC">Churros</li>
@@ -94,7 +94,7 @@
                 <div class="contact-grid">
                   <div class="field">
                     <label for="b-nome">Nome</label>
-                    <input id="b-nome" type="text" placeholder="Como podemos te chamar?" />
+                    <input id="b-nome" type="text" placeholder="Como podemos te chamar?" aria-required="true" />
                   </div>
                   <div class="field">
                     <label for="b-email">E-mail</label>
@@ -102,7 +102,7 @@
                   </div>
                   <div class="field">
                     <label for="b-tel">WhatsApp</label>
-                    <input id="b-tel" type="tel" placeholder="(31) 99999-9999" />
+                    <input id="b-tel" type="tel" placeholder="(31) 99999-9999" aria-required="true" />
                   </div>
                   <div class="field">
                     <label for="b-bairro">Bairro do evento</label>
@@ -122,7 +122,7 @@
                   <textarea id="b-obs" maxlength="400" rows="3" placeholder="Tema da festa, restrições alimentares dos convidados, algo especial que quer incluir..."></textarea>
                 </div>
                 <div class="result-action">
-                  <a class="btn" id="b-submit" href="#">Ver minha estimativa</a>
+                  <button class="btn" id="b-submit" type="button">Ver minha estimativa</button>
                 </div>
               </div>
 

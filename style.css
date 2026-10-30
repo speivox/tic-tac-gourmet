@@ -45,6 +45,22 @@ video {
 a {
   color: inherit;
 }
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.4rem 1rem;
+  background: var(--brown);
+  color: var(--white);
+  font-size: 0.85rem;
+  border-radius: 0 0 4px 4px;
+  z-index: 9999;
+  transition: top 0.1s;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
 p {
   margin: 0 0 1em;
 }

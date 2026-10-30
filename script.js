@@ -31,6 +31,7 @@ const toggle = document.querySelector('.nav-toggle');
 toggle.addEventListener('click', () => {
   const open = header.classList.toggle('menu-open');
   toggle.setAttribute('aria-expanded', open);
+  toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
   updateVisibility();
 });
 const closeMenu = () => {
@@ -106,6 +107,7 @@ document.querySelectorAll('.faq details').forEach((det) => {
     const li = e.target.closest('li');
     if (!li || !li.hasAttribute('data-item')) return;
     li.classList.toggle('is-on');
+    li.setAttribute('aria-pressed', li.classList.contains('is-on') ? 'true' : 'false');
     agendarCalculo();
   });
 
@@ -114,8 +116,35 @@ document.querySelectorAll('.faq details').forEach((det) => {
   tipoEl.addEventListener('click', e => {
     const li = e.target.closest('li');
     if (!li || !li.hasAttribute('data-tipo')) return;
-    tipoEl.querySelectorAll('li[data-tipo]').forEach(l => l.classList.remove('is-on'));
+    tipoEl.querySelectorAll('li[data-tipo]').forEach(l => {
+      l.classList.remove('is-on');
+      l.setAttribute('aria-pressed', 'false');
+    });
     li.classList.add('is-on');
+    li.setAttribute('aria-pressed', 'true');
+  });
+
+  // inicializar role/tabindex/aria-pressed em todos os chips
+  chipsEl.querySelectorAll('li[data-item]').forEach(li => {
+    li.setAttribute('role', 'button');
+    li.setAttribute('tabindex', '0');
+    li.setAttribute('aria-pressed', li.classList.contains('is-on') ? 'true' : 'false');
+  });
+  tipoEl.querySelectorAll('li[data-tipo]').forEach(li => {
+    li.setAttribute('role', 'button');
+    li.setAttribute('tabindex', '0');
+    li.setAttribute('aria-pressed', li.classList.contains('is-on') ? 'true' : 'false');
+  });
+
+  // ativar chips pelo teclado
+  [chipsEl, tipoEl].forEach(ul => {
+    ul.addEventListener('keydown', e => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const li = e.target.closest('li');
+      if (!li) return;
+      e.preventDefault();
+      li.click();
+    });
   });
 
   // contador de caracteres da textarea
@@ -246,17 +275,26 @@ document.querySelectorAll('.faq details').forEach((det) => {
     field.style.position    = 'relative';
     field.style.paddingBottom = '20px';
     const span = document.createElement('span');
+    const erroId = (input.id || 'field') + '-erro';
+    span.id = erroId;
     span.className = 'field-error';
+    span.setAttribute('aria-live', 'polite');
     field.append(span);
+    input.setAttribute('aria-describedby', erroId);
     const mostrar = () => {
       const msg = checar();
       span.textContent = msg;
       span.classList.toggle('is-visible', !!msg);
       input.classList.toggle('is-invalid', !!msg);
+      input.setAttribute('aria-invalid', msg ? 'true' : 'false');
       return !!msg;
     };
     input.addEventListener('blur',  mostrar);
-    input.addEventListener('input', () => { span.classList.remove('is-visible'); input.classList.remove('is-invalid'); });
+    input.addEventListener('input', () => {
+      span.classList.remove('is-visible');
+      input.classList.remove('is-invalid');
+      input.setAttribute('aria-invalid', 'false');
+    });
     return { mostrar };
   }
 
@@ -400,6 +438,7 @@ document.querySelectorAll('.faq details').forEach((det) => {
 
   const imgs = [...document.querySelectorAll('.sobre-mosaic .mosaic-item img')];
   let current = 0;
+  let lastFocus = null;
 
   const show = (idx) => {
     current = (idx + imgs.length) % imgs.length;
@@ -409,14 +448,17 @@ document.querySelectorAll('.faq details').forEach((det) => {
     lbNext.hidden = imgs.length <= 1;
   };
   const open = (idx) => {
+    lastFocus = document.activeElement;
     show(idx);
     lb.hidden = false;
     document.body.style.overflow = 'hidden';
+    lbClose.focus();
   };
   const close = () => {
     lb.hidden = true;
     document.body.style.overflow = '';
     lbImg.src = '';
+    lastFocus?.focus();
   };
 
   imgs.forEach((img, i) => {
