@@ -833,6 +833,11 @@ h3 {
   padding: 18px 28px;
   margin-bottom: 36px;
   text-align: left;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.rating:hover {
+  border-color: var(--muted);
 }
 .rating-score {
   font-size: 2rem;
@@ -861,19 +866,18 @@ h3 {
   letter-spacing: 0.1em;
   color: var(--sage);
 }
-.rating-meta a {
+.rating-cta {
   display: inline-block;
   margin-top: 4px;
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
-  text-decoration: none;
   border-bottom: 1px solid #4a3122;
   padding-bottom: 2px;
   transition: color 0.2s, border-color 0.2s;
 }
-.rating-meta a:hover {
+.rating:hover .rating-cta {
   color: var(--sage);
   border-bottom-color: var(--sage);
 }
