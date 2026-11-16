@@ -726,6 +726,11 @@ h3 {
   display: grid;
   place-items: center;
   padding: 24px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.lightbox.is-visible {
+  opacity: 1;
 }
 .lightbox[hidden] { display: none; }
 .lightbox-img {
@@ -733,6 +738,17 @@ h3 {
   max-height: 90vh;
   object-fit: contain;
   box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  transform: scale(0.94);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.lightbox.is-visible .lightbox-img {
+  transform: scale(1);
+  opacity: 1;
+}
+.lightbox-img.is-switching {
+  opacity: 0;
+  transition: opacity 0.12s ease;
 }
 .lightbox-close {
   position: absolute;

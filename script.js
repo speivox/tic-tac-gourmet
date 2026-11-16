@@ -436,45 +436,67 @@ document.querySelectorAll('.faq details').forEach((det) => {
   const lbNext  = document.getElementById('lightbox-next');
   if (!lb) return;
 
-  const imgs = [...document.querySelectorAll('.sobre-mosaic .mosaic-item img')];
+  // Cada seletor forma seu próprio grupo: as setas navegam só dentro do
+  // grupo em que o lightbox foi aberto, nunca pulando pra outra galeria.
+  const grupos = [...document.querySelectorAll('[data-lightbox-group]')].map(
+    (el) => [...el.querySelectorAll('img')]
+  );
+  let imgs = [];
   let current = 0;
   let lastFocus = null;
 
-  const show = (idx) => {
-    current = (idx + imgs.length) % imgs.length;
+  // troca de foto com um fade rápido; a abertura/fechamento usa fade+zoom
+  // (classe .is-visible), controlado por transição no CSS.
+  const render = () => {
     lbImg.src = imgs[current].src;
     lbImg.alt = imgs[current].alt;
     lbPrev.hidden = imgs.length <= 1;
     lbNext.hidden = imgs.length <= 1;
   };
-  const open = (idx) => {
+  const show = (idx, animate = false) => {
+    current = (idx + imgs.length) % imgs.length;
+    if (!animate) { render(); return; }
+    lbImg.classList.add('is-switching');
+    setTimeout(() => {
+      render();
+      lbImg.classList.remove('is-switching');
+    }, 120);
+  };
+  const open = (grupo, idx) => {
+    imgs = grupo;
     lastFocus = document.activeElement;
     show(idx);
     lb.hidden = false;
     document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => lb.classList.add('is-visible'));
     lbClose.focus();
   };
   const close = () => {
-    lb.hidden = true;
+    lb.classList.remove('is-visible');
     document.body.style.overflow = '';
-    lbImg.src = '';
     lastFocus?.focus();
+    setTimeout(() => {
+      lb.hidden = true;
+      lbImg.src = '';
+    }, 250);
   };
 
-  imgs.forEach((img, i) => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => open(i));
+  grupos.forEach((grupo) => {
+    grupo.forEach((img, i) => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => open(grupo, i));
+    });
   });
 
   lbClose.addEventListener('click', close);
-  lbPrev.addEventListener('click', () => show(current - 1));
-  lbNext.addEventListener('click', () => show(current + 1));
+  lbPrev.addEventListener('click', () => show(current - 1, true));
+  lbNext.addEventListener('click', () => show(current + 1, true));
   lb.addEventListener('click', e => { if (e.target === lb) close(); });
   document.addEventListener('keydown', e => {
     if (lb.hidden) return;
     if (e.key === 'Escape')     close();
-    if (e.key === 'ArrowLeft')  show(current - 1);
-    if (e.key === 'ArrowRight') show(current + 1);
+    if (e.key === 'ArrowLeft')  show(current - 1, true);
+    if (e.key === 'ArrowRight') show(current + 1, true);
   });
 })();
 
