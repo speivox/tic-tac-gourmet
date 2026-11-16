@@ -746,7 +746,7 @@ h3 {
   transform: scale(1);
   opacity: 1;
 }
-.lightbox-img.is-switching {
+.lightbox.is-visible .lightbox-img.is-switching {
   opacity: 0;
   transition: opacity 0.12s ease;
 }
