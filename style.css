@@ -679,6 +679,11 @@ h3 {
 .sobre-text p:last-child {
   margin-bottom: 0;
 }
+.sobre-selo {
+  width: 120px;
+  height: auto;
+  margin-top: 28px;
+}
 .sobre-mosaic {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -1295,11 +1300,11 @@ h3 {
   height: 76px;
   width: auto;
 }
-.footer-tag {
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  color: var(--olive);
+.footer-wordmark {
+  height: 22px;
+  width: auto;
   margin-top: 20px;
+  opacity: 0.85;
 }
 .footer-contact {
   list-style: none;
