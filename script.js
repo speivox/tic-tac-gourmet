@@ -451,7 +451,7 @@ document.querySelectorAll('.faq details').forEach((det) => {
   const render = () => {
     lbImg.src = imgs[current].src;
     lbImg.alt = imgs[current].alt;
-    lbCaption.textContent = imgs[current].alt;
+    lbCaption.textContent = imgs[current].dataset.caption || '';
     lbPrev.hidden = imgs.length <= 1;
     lbNext.hidden = imgs.length <= 1;
   };
