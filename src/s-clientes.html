@@ -9,7 +9,7 @@
             </p>
           </header>
 
-          <ul class="clients-grid" data-lightbox-group>
+          <ul class="clients-grid" id="clients-grid" data-lightbox-group>
             <li>
               <img src="assets/img/corp-01.webp" alt="Evento Fiat 50 anos com carrinho Tic Tac Gourmet" loading="lazy" width="800" height="1422" />
             </li>
@@ -34,27 +34,33 @@
             <li>
               <img src="assets/img/corp-08.webp" alt="Evento BYD Carbel com carrinho Tic Tac Gourmet" loading="lazy" width="800" height="1422" />
             </li>
-            <li>
+            <li class="is-hidden">
               <img src="assets/img/corp-09.webp" alt="Evento na Drogaria Araujo com a equipe Tic Tac Gourmet" loading="lazy" width="800" height="1422" />
             </li>
-            <li>
+            <li class="is-hidden">
               <img src="assets/img/corp-10.webp" alt="Carrinhos Tic Tac Gourmet na Rommanel" loading="lazy" width="800" height="1067" />
             </li>
-            <li>
+            <li class="is-hidden">
               <img src="assets/img/corp-11.webp" alt="Carrinhos Tic Tac Gourmet no Banzai Café" loading="lazy" width="800" height="1422" />
             </li>
-            <li>
+            <li class="is-hidden">
               <img src="assets/img/corp-12.webp" alt="Detalhe do selo Fiat 50 anos no carrinho Tic Tac Gourmet" loading="lazy" width="800" height="1422" />
             </li>
-            <li>
+            <li class="is-hidden">
               <img src="assets/img/corp-13.webp" alt="Hambúrguer Tic Tac Gourmet com bandeira do Sicoob Credicom ao fundo" loading="lazy" width="800" height="1422" />
             </li>
-            <li>
+            <li class="is-hidden">
               <img src="assets/img/corp-14.webp" alt="Carrinhos Tic Tac Gourmet em concessionária BYD" loading="lazy" width="800" height="1422" />
             </li>
-            <li>
+            <li class="is-hidden">
               <img src="assets/img/corp-15.webp" alt="Detalhe do carrinho Tic Tac Gourmet na Rommanel" loading="lazy" width="800" height="1067" />
             </li>
           </ul>
+
+          <div class="clients-more">
+            <button class="btn btn--outline" type="button" data-more="clients-grid" data-visible="8"
+              data-label-more="Ver todas as fotos"
+              data-label-less="Ver menos">Ver todas as fotos</button>
+          </div>
         </div>
       </section>
