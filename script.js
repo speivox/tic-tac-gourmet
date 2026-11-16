@@ -429,11 +429,12 @@ document.querySelectorAll('.faq details').forEach((det) => {
 
 // ── lightbox ───────────────────────────────────────────
 (() => {
-  const lb      = document.getElementById('lightbox');
-  const lbImg   = document.getElementById('lightbox-img');
-  const lbClose = document.getElementById('lightbox-close');
-  const lbPrev  = document.getElementById('lightbox-prev');
-  const lbNext  = document.getElementById('lightbox-next');
+  const lb        = document.getElementById('lightbox');
+  const lbImg     = document.getElementById('lightbox-img');
+  const lbCaption = document.getElementById('lightbox-caption');
+  const lbClose   = document.getElementById('lightbox-close');
+  const lbPrev    = document.getElementById('lightbox-prev');
+  const lbNext    = document.getElementById('lightbox-next');
   if (!lb) return;
 
   // Cada seletor forma seu próprio grupo: as setas navegam só dentro do
@@ -450,6 +451,7 @@ document.querySelectorAll('.faq details').forEach((det) => {
   const render = () => {
     lbImg.src = imgs[current].src;
     lbImg.alt = imgs[current].alt;
+    lbCaption.textContent = imgs[current].alt;
     lbPrev.hidden = imgs.length <= 1;
     lbNext.hidden = imgs.length <= 1;
   };
@@ -457,9 +459,11 @@ document.querySelectorAll('.faq details').forEach((det) => {
     current = (idx + imgs.length) % imgs.length;
     if (!animate) { render(); return; }
     lbImg.classList.add('is-switching');
+    lbCaption.classList.add('is-switching');
     setTimeout(() => {
       render();
       lbImg.classList.remove('is-switching');
+      lbCaption.classList.remove('is-switching');
     }, 120);
   };
   const open = (grupo, idx) => {
