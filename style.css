@@ -344,7 +344,7 @@ h3 {
 }
 .cart-media {
   overflow: hidden;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
 }
 .cart-media img {
   width: 100%;
