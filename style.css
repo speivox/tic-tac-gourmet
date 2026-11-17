@@ -234,8 +234,14 @@ h3 {
   border-bottom-color: currentColor;
 }
 .main-nav .nav-cta {
-  border: 1px solid var(--cream);
+  background: var(--cream);
+  border-color: var(--cream);
+  color: var(--brown);
   padding: 10px 20px;
+}
+.main-nav .nav-cta:hover {
+  background: transparent;
+  color: var(--cream);
 }
 .nav-toggle {
   display: none;
