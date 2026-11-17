@@ -416,8 +416,9 @@ h3 {
 .section-head {
   max-width: 620px;
   margin-bottom: 52px;
-  margin-inline: auto;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 .section-lead {
   display: none;
@@ -719,11 +720,10 @@ h3 {
 /* ícone de seção */
 .section-head::before {
   content: '';
-  display: block;
+  flex-shrink: 0;
   width: 40px;
   height: 40px;
   background: url('assets/img/icon-carrinho-preto.webp') center / contain no-repeat;
-  margin: 0 auto 16px;
   opacity: 0.75;
 }
 .section--dark .section-head::before {
