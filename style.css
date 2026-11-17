@@ -420,6 +420,9 @@ h3 {
   align-items: center;
   gap: 14px;
 }
+.section-head h2 {
+  margin: 0;
+}
 .section-lead {
   display: none;
 }
