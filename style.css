@@ -410,14 +410,6 @@ h3 {
   background: var(--brown);
   color: var(--sage);
 }
-/* linha sutil entre seções de mesmo fundo */
-.section:not(.section--cream):not(.section--dark) + .section:not(.section--cream):not(.section--dark),
-.section--cream + .section--cream {
-  border-top: 1px solid rgba(205, 198, 195, 0.4);
-}
-.section--dark + .section--dark {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
 .section-head {
   max-width: 620px;
   margin-bottom: 52px;
