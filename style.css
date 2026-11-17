@@ -719,19 +719,21 @@ h3 {
 .sobre-mosaic .mosaic-item:nth-child(4) img { object-position: center 25%; }
 .sobre-mosaic .mosaic-item:nth-child(5) img { object-position: center 20%; }
 
-/* separador de seção */
-.section-divider {
-  position: absolute;
-  bottom: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-.section-divider img {
-  width: 36px;
-  height: auto;
-  opacity: 0.5;
+/* ícone de seção */
+.section-head::before {
+  content: '';
   display: block;
+  width: 32px;
+  height: 32px;
+  background: url('assets/img/icon-carrinho-preto.webp') left center / contain no-repeat;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+.section-head--center::before {
+  margin-inline: auto;
+}
+.section--dark .section-head::before {
+  background-image: url('assets/img/icon-carrinho-branco.webp');
 }
 
 /* lightbox */
