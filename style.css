@@ -643,6 +643,41 @@ h3 {
   margin: 0;
 }
 
+/* trail em fundo dark */
+.section--dark .trail-dot {
+  border-color: var(--sage);
+  background: var(--brown);
+}
+.section--dark .trail-step::after {
+  background: repeating-linear-gradient(
+    to right,
+    var(--sage) 0 4px,
+    transparent 4px 9px
+  );
+  opacity: 0.3;
+}
+.section--dark .trail-body p {
+  color: var(--warm);
+}
+
+/* rating widget em fundo claro */
+.section--cream .rating,
+.section:not(.section--dark):not(.section--cream) .rating {
+  border-color: rgba(74, 49, 34, 0.2);
+}
+.section--cream .rating-score,
+.section:not(.section--dark):not(.section--cream) .rating-score {
+  color: var(--brown);
+}
+.section--cream .rating-meta b,
+.section:not(.section--dark):not(.section--cream) .rating-meta b {
+  color: var(--brown);
+}
+.section--cream .rating-cta,
+.section:not(.section--dark):not(.section--cream) .rating-cta {
+  border-bottom-color: rgba(74, 49, 34, 0.2);
+}
+
 /* ---------- como funciona ---------- */
 .steps {
   display: grid;
