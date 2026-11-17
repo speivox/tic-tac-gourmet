@@ -416,8 +416,6 @@ h3 {
 .section-head {
   max-width: 620px;
   margin-bottom: 52px;
-}
-.section-head--center {
   margin-inline: auto;
   text-align: center;
 }
@@ -725,12 +723,9 @@ h3 {
   display: block;
   width: 32px;
   height: 32px;
-  background: url('assets/img/icon-carrinho-preto.webp') left center / contain no-repeat;
-  margin-bottom: 16px;
+  background: url('assets/img/icon-carrinho-preto.webp') center / contain no-repeat;
+  margin: 0 auto 16px;
   opacity: 0.5;
-}
-.section-head--center::before {
-  margin-inline: auto;
 }
 .section--dark .section-head::before {
   background-image: url('assets/img/icon-carrinho-branco.webp');
