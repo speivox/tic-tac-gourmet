@@ -689,11 +689,6 @@ h3 {
 .sobre-text p:last-child {
   margin-bottom: 0;
 }
-.sobre-selo {
-  width: 120px;
-  height: auto;
-  margin-top: 28px;
-}
 .sobre-mosaic {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -829,8 +824,26 @@ h3 {
 }
 @media (max-width: 760px) {
   .sobre-mosaic {
-    grid-template-rows: 140px 140px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 8px;
+    /* sangra pra fora do container para o carrossel ficar edge-to-edge */
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    /* padding-right extra deixa a última foto respirar */
+    padding-right: var(--gutter);
   }
+  .sobre-mosaic::-webkit-scrollbar { display: none; }
+  .mosaic-item {
+    flex: 0 0 82vw;
+    height: 240px;
+    scroll-snap-align: start;
+  }
+  .sobre-mosaic .mosaic-item:last-child img { object-position: center 50%; }
 }
 
 /* ---------- depoimentos ---------- */
@@ -1680,6 +1693,43 @@ h3 {
   .clients-grid,
   .galeria-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .clients-grid {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 10px;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+  }
+  .clients-grid::-webkit-scrollbar { display: none; }
+  .clients-grid li {
+    flex: 0 0 65vw;
+    scroll-snap-align: start;
+  }
+  .clients-grid li.is-hidden { display: block; }
+  .clients-more { display: none; }
+  .clients-grid img { filter: none; }
+}
+@media (max-width: 640px) {
+  .galeria-grid {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 10px;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+  }
+  .galeria-grid::-webkit-scrollbar { display: none; }
+  .galeria-item {
+    flex: 0 0 65vw;
+    scroll-snap-align: start;
   }
 }
 
