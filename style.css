@@ -193,9 +193,9 @@ h3 {
   inset: 0 0 auto;
   z-index: 50;
   height: var(--header-h);
-  background: var(--white);
-  color: var(--brown);
-  box-shadow: 0 1px 0 var(--warm);
+  background: var(--brown);
+  color: var(--cream);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
   transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
@@ -234,7 +234,7 @@ h3 {
   border-bottom-color: currentColor;
 }
 .main-nav .nav-cta {
-  border: 1px solid var(--brown);
+  border: 1px solid var(--cream);
   padding: 10px 20px;
 }
 .nav-toggle {
@@ -878,13 +878,13 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: #4a3122;
-  border: 1px solid #4a3122;
+  background: var(--warm);
+  border: 1px solid var(--warm);
 }
 .quote {
   margin: 0;
   padding: 34px 30px;
-  background: var(--brown);
+  background: var(--white);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -897,13 +897,13 @@ h3 {
   font-size: 0.95rem;
   font-weight: 300;
   line-height: 1.75;
-  color: #efe9df;
+  color: var(--brown);
 }
 .quote figcaption {
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--olive);
 }
 .quote figcaption span {
   display: block;
@@ -1547,9 +1547,9 @@ h3 {
     align-items: stretch;
     gap: 0;
     padding: 8px 20px 20px;
-    background: var(--white);
-    color: var(--brown);
-    border-bottom: 1px solid var(--warm);
+    background: var(--brown);
+    color: var(--cream);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     transform: translateY(-10px);
     opacity: 0;
     visibility: hidden;
