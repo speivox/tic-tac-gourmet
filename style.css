@@ -718,6 +718,27 @@ h3 {
 .sobre-mosaic .mosaic-item:nth-child(4) img { object-position: center 25%; }
 .sobre-mosaic .mosaic-item:nth-child(5) img { object-position: center 20%; }
 
+/* separador de seção */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 56px;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.15;
+}
+.section-divider img {
+  width: 36px;
+  height: auto;
+  opacity: 0.3;
+}
+
 /* lightbox */
 .lightbox {
   position: fixed;
