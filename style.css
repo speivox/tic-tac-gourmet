@@ -1685,11 +1685,12 @@ h3 {
   display: flex;
   gap: 6px;
   width: max-content;
-  animation: marquee-left 36s linear infinite;
+  animation: marquee-left 51s linear infinite; /* 10 fotos, ~5s cada */
   will-change: transform;
 }
 .clients-track--rev {
   animation-name: marquee-right;
+  animation-duration: 46s; /* 9 fotos */
 }
 
 @keyframes marquee-left {
@@ -1725,6 +1726,21 @@ h3 {
 }
 .clients-reel li:hover img {
   transform: scale(1.07);
+}
+.clients-reel li {
+  position: relative;
+}
+.clients-name {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 36px 14px 13px;
+  background: linear-gradient(to top, rgba(53, 28, 14, 0.82), rgba(53, 28, 14, 0));
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
 }
 
 /* ---------- galeria / polaroids ---------- */
