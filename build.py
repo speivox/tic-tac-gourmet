@@ -13,7 +13,6 @@ PARTS = [
     'header.html',
     's-hero.html',
     's-cardapio.html',
-    's-carrinhos.html',
     's-como-funciona.html',
     's-clientes.html',
     's-sobre.html',
