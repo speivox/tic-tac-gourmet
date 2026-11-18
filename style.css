@@ -1746,6 +1746,31 @@ h3 {
   pointer-events: none;
 }
 
+.galeria-ig {
+  margin-top: 48px;
+  text-align: center;
+}
+.galeria-ig p {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+.galeria-ig-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  color: var(--brown);
+  text-decoration: none;
+}
+.galeria-ig-link .i {
+  width: 22px;
+  height: 22px;
+}
+.galeria-ig-link:hover {
+  color: var(--olive);
+}
+
 /* ---------- galeria / polaroids ---------- */
 .galeria-grid {
   display: grid;
